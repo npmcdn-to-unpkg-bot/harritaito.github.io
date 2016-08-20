@@ -20,52 +20,27 @@
 
 		</section>
 		<script type="text/babel">
-			var destination = document.querySelector("#inner");
-            var App = React.createClass({
-                render: function() {
-                    return (
-                            <div>
-                                <h1>Simple SPA</h1>
-                                <ul className="header">
-                                    <li>Home</li>
-                                    <li>Stuff</li>
-                                    <li>Contact</li>
-                                </ul>
-                                <div className="content">
-                                    <Home/>
-                                </div>
-                            </div>
-                    )
-                }
-            });
 			var Home = React.createClass({
 				render: function() {
 					return (
                             <div>
-                                <App/>
                                 <header>
                                     <h2>CV</h2>
                                 </header>
                                 <p>for<br>
-                                    <br />
-                                    <strong>Harri Halonen</strong>
-                                </p><br>
+                                    </br>
+                                    Harri Halonen
+                                </p>
 
                                 <a href="https://dl.dropboxusercontent.com/u/106162115/HarriHalonenResume-2016.pdf" class="">Download</a>
-                                <br />
+
                             </div>
 					);
 				}
 			});
 
-            ReactDOM.render(
-                <ReactRouter.Router>
-                    <ReactRouter.Route path="/" component={App}>
+            ReactDOM.render(<Home />, document.getElementById('container'));
 
-                    </ReactRouter.Route>
-                </ReactRouter.Router>,
-            destination
-            );
 		</script>
 	</body>
 </html>
