@@ -1,19 +1,19 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Harri Halonen</title>
-		<meta charset="utf-8" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Harri Halonen</title>
 		<link rel="stylesheet" href="main.css" />
-		<script src="https://npmcdn.com/react@15.3.0/dist/react.js"></script>
-		<script src="https://npmcdn.com/react-dom@15.3.0/dist/react-dom.js"></script>
+		<script src="https://npmcdn.com/react@15.3.1/dist/react.min.js"></script>
+		<script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-	<style>
-	</style>
+		<script src="https://npmcdn.com/react-router/umd/ReactRouter.min.js"></script>
 	</head>
 	<body class="index">
 		<!-- Banner -->
 		<section id="banner">
-			<div class="inner">
+			<div id="container" class="inner">
 
 
 			</div>
@@ -21,22 +21,51 @@
 		</section>
 		<script type="text/babel">
 			var destination = document.querySelector("#inner");
+            var App = React.createClass({
+                render: function() {
+                    return (
+                            <div>
+                                <h1>Simple SPA</h1>
+                                <ul className="header">
+                                    <li>Home</li>
+                                    <li>Stuff</li>
+                                    <li>Contact</li>
+                                </ul>
+                                <div className="content">
+                                    <Home/>
+                                </div>
+                            </div>
+                    )
+                }
+            });
+			var Home = React.createClass({
+				render: function() {
+					return (
+                            <div>
+                                <App/>
+                                <header>
+                                    <h2>CV</h2>
+                                </header>
+                                <p>for<br>
+                                    <br />
+                                    <strong>Harri Halonen</strong>
+                                </p><br>
 
-			ReactDOM.render(
-					<div>
-						<header>
-							<h2>CV</h2>
-						</header>
-						<p>for<br>
-							<br />
-							<strong>Harri Halonen</strong>
-						</p><br>
+                                <a href="https://dl.dropboxusercontent.com/u/106162115/HarriHalonenResume-2016.pdf" class="">Download</a>
+                                <br />
+                            </div>
+					);
+				}
+			});
 
-						<a href="https://dl.dropboxusercontent.com/u/106162115/HarriHalonenResume-2016.pdf" class="">Download</a>
-						<br />
-					</div>,
-					destination
-			);
+            ReactDOM.render(
+                <ReactRouter.Router>
+                    <ReactRouter.Route path="/" component={App}>
+
+                    </ReactRouter.Route>
+                </ReactRouter.Router>,
+            destination
+            );
 		</script>
 	</body>
 </html>
